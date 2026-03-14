@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between">
+    <h2>📅 Rendez-vous</h2>
+    <a href="/rdv/ajouter/" class="btn btn-primary">+ Ajouter</a>
+</div>
+<table class="table table-striped mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Médecin</th>
+            <th>Date</th>
+            <th>Statut</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in rdvs %}
+        <tr>
+            <td>{{ r.id_rdv }}</td>
+            <td>{{ r.patient.nom }} {{ r.patient.prenom }}</td>
+            <td>{{ r.medecin.nom }}</td>
+            <td>{{ r.date_rdv }}</td>
+            <td>{{ r.statut }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

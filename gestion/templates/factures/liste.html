@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>💰 Factures</h2>
+<table class="table table-striped mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>Patient</th>
+            <th>Prénom</th>
+            <th>Facture</th>
+            <th>Montant (DH)</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for f in factures %}
+        <tr>
+            <td>{{ f.0 }}</td>
+            <td>{{ f.1 }}</td>
+            <td>{{ f.2 }}</td>
+            <td>{{ f.3 }}</td>
+            <td>{{ f.4 }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>📊 Tableau de Bord</h2>
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                💰 Revenus Mensuels
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Mois</th>
+                            <th>Nb Factures</th>
+                            <th>Total (DH)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for r in revenus %}
+                        <tr>
+                            <td>{{ r.0 }}</td>
+                            <td>{{ r.1 }}</td>
+                            <td>{{ r.2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                🏨 Occupation des Services
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Capacité</th>
+                            <th>Occupés</th>
+                            <th>Taux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for o in occupation %}
+                        <tr>
+                            <td>{{ o.1 }}</td>
+                            <td>{{ o.2 }}</td>
+                            <td>{{ o.3 }}</td>
+                            <td>{{ o.4 }}%</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
